@@ -1,0 +1,42 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #121212;
+    color: white;
+}
+
+.controls form {
+    margin: 10px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+    background: #1e1e1e;
+    border: 1px solid #444;
+    color: white;
+}
+
+button {
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cache {
+    margin-top: 20px;
+}
+
+.block {
+    width: 120px;
+    margin: 10px auto;
+    padding: 10px;
+    background: #2c2c2c;
+    border-radius: 6px;
+}
+
+.lru {
+    background: red;
+}

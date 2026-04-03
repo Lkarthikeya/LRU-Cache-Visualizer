@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LRU Cache System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>LRU Cache System</h1>
+
+<div class="controls">
+    <form action="/put" method="POST">
+        <input name="key" placeholder="Key">
+        <input name="value" placeholder="Value">
+        <button type="submit">Add</button>
+    </form>
+
+    <form action="/get" method="POST">
+        <input name="getKey" placeholder="Access Key">
+        <button type="submit">Access</button>
+    </form>
+</div>
+
+<!-- Cache -->
+<div class="cache">
+    {% for key in cache %}
+        <div class="block {% if loop.last %}lru{% endif %}">
+            {{ key }}
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Stats -->
+<div class="stats">
+    <p>Hits: {{ stats.hits }}</p>
+    <p>Misses: {{ stats.misses }}</p>
+    <p>Size: {{ stats.size }}</p>
+</div>
+
+<!-- Logs -->
+<div class="logs">
+    <h3>Activity</h3>
+    {% for log in logs[:5] %}
+        <p>{{ log }}</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>
