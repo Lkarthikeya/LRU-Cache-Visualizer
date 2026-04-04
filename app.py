@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from cache import LRUCache
+import random
 
 app = Flask(__name__)
 
@@ -33,6 +34,24 @@ def get():
 
     if key:
         cache.get(key)
+
+    return redirect("/")
+
+
+# 🔥 BONUS: AUTO SIMULATION (extra marks)
+@app.route("/simulate")
+def simulate():
+    operations = ["put", "get"]
+
+    for _ in range(10):
+        op = random.choice(operations)
+        key = str(random.randint(1, 5))
+
+        if op == "put":
+            value = str(random.randint(10, 100))
+            cache.put(key, value)
+        else:
+            cache.get(key)
 
     return redirect("/")
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>LRU Cache System</h1>
+<h1>LRU Cache Simulator</h1>
 
 <div class="controls">
     <form action="/put" method="POST">
@@ -19,12 +19,19 @@
         <input name="getKey" placeholder="Access Key">
         <button type="submit">Access</button>
     </form>
+
+    <a href="/simulate"><button>Run Simulation</button></a>
 </div>
 
-<!-- Cache -->
+<!-- Cache Visualization -->
 <div class="cache">
+    <h3>Cache (Top = MRU, Bottom = LRU)</h3>
+
     {% for key in cache %}
-        <div class="block {% if loop.last %}lru{% endif %}">
+        <div class="block 
+            {% if loop.first %}mru{% endif %}
+            {% if loop.last %}lru{% endif %}
+        ">
             {{ key }}
         </div>
     {% endfor %}
@@ -39,8 +46,8 @@
 
 <!-- Logs -->
 <div class="logs">
-    <h3>Activity</h3>
-    {% for log in logs[:5] %}
+    <h3>Recent Activity</h3>
+    {% for log in logs[:8] %}
         <p>{{ log }}</p>
     {% endfor %}
 </div>

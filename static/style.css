@@ -5,6 +5,10 @@ body {
     color: white;
 }
 
+h1 {
+    margin-top: 20px;
+}
+
 .controls form {
     margin: 10px;
 }
@@ -23,20 +27,52 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
+button:hover {
+    background: #555;
+}
+
+/* Cache Blocks */
 .cache {
     margin-top: 20px;
 }
 
 .block {
     width: 120px;
-    margin: 10px auto;
+    margin: 8px auto;
     padding: 10px;
     background: #2c2c2c;
     border-radius: 6px;
+    font-weight: bold;
 }
 
+/* MRU (Top) */
+.mru {
+    background: #00c853;
+    color: black;
+}
+
+/* LRU (Bottom) */
 .lru {
-    background: red;
+    background: #d50000;
+}
+
+/* Stats */
+.stats {
+    margin-top: 20px;
+}
+
+/* Logs */
+.logs {
+    margin-top: 20px;
+}
+
+.logs p {
+    background: #1e1e1e;
+    margin: 5px auto;
+    padding: 6px;
+    width: 250px;
+    border-radius: 5px;
 }
